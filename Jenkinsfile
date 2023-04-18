@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'rpimage:latest' }
+    }
   
 
     stages{
