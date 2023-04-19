@@ -1,7 +1,6 @@
 pipeline {
-    agent any
+     agent { dockerfile true }
   
-
     stages{
        stage('Check Env Variable') {
             steps {
