@@ -20,14 +20,18 @@ RUN apt-get install -y \
         awscliv2.zip \
     && apt-get -y purge curl \
     && apt-get -y purge unzip
+RUN apt-get update && apt-get install -y \
+  ca-certificates \
+  curl
 
- apt-get install git-core curl build-essential openssl libssl-dev
- git clone https://github.com/nodejs/node.git
- cd node
- ./configure
- make
- sudo make install
- node -v
+ARG NODE_VERSION=14.16.0
+ARG NODE_PACKAGE=node-v$NODE_VERSION-linux-x64
+ARG NODE_HOME=/opt/$NODE_PACKAGE
+
+ENV NODE_PATH $NODE_HOME/lib/node_modules
+ENV PATH $NODE_HOME/bin:$PATH
+
+RUN curl https://nodejs.org/dist/v$NODE_VERSION/$NODE_PACKAGE.tar.gz | tar -xzC /opt/
 
 WORKDIR /app
 
