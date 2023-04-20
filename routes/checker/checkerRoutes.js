@@ -10,7 +10,7 @@ const logger = require('../../logger/logger')
  */
 const sayHello = (req, res) => {
     logger.info(`Checker route! Saying hello from ${req.originalUrl}`)
-    res.status(200).json({ "message": "Hello Express! I am ready for work 19-04-2023" })
+    res.status(200).json({ "message": "Hello Express! I am ready for work 20-04-2023!!!!" })
 }
 
 module.exports = {
