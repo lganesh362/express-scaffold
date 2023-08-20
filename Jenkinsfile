@@ -22,7 +22,7 @@ pipeline {
                  }
          }
      }
-        /*
+        
         stage('Pull Docker image from ECR') {
             steps {
                 script{
@@ -30,21 +30,21 @@ pipeline {
                         //sh "docker rm -f learning111"
                         // sh "docker run -itd -p 3000:3000 --name learning111 ${buildProps.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/node-repo:${env.BUILD_NUMBER}"
                    // Removing existing image
-                    sh "docker rmi -f learning111"
+                    sh "docker rmi -f gani"
                     // Pulling latest version of docker image
-                    sh "docker pull public.ecr.aws/g8i9m6o6/learning111:latest"
+                    sh "docker pull public.ecr.aws/g8i9m6o6/gani:latest"
                     
-                    sh 'docker ps -f name=vamsi-Adi-practice -q | xargs --no-run-if-empty docker container stop'
-                    sh 'docker container ls -a -fname=vamsi-Adi-practice -q | xargs -r docker container rm'
+                    sh 'docker ps -f name=gani-practice -q | xargs --no-run-if-empty docker container stop'
+                    sh 'docker container ls -a -fname=gani-practice -q | xargs -r docker container rm'
                     // creating container and port mapping
                     
                    // sh "docker run -d --name vamsi-Adi-practice -p 3000:3000 public.ecr.aws/g8i9m6o6/learning111:latest" 
                     //logs
-                    sh "docker run -d -p 3000:3000 --name vamsi-Adi-practice --log-driver=awslogs --log-opt awslogs-region=us-east-1 --log-opt awslogs-group=practice public.ecr.aws/g8i9m6o6/learning111:latest"
+                    sh "docker run -d -p 3000:3000 --name gani-practice --log-driver=awslogs --log-opt awslogs-region=us-east-1 --log-opt awslogs-group=practice public.ecr.aws/g8i9m6o6/learning111:latest"
                 }
         }
     }
-*/
+
  }
 }
 
